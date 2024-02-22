@@ -1,9 +1,9 @@
-<h1>Hello world</h1>
-<p>This is my first webpage</p>
+<h1>Your friends are already here.</h1>
+<h2>Sign up now.</h2>
 
 
 <% if user_signed_in? %>
-  <h1>Welcome Home, <%= current_user.email %></h1>
+  <h1>Well done, <%= current_user.email %></h1>
   <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
 <% else %>
   <h1>Home</h1>
