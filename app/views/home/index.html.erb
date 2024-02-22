@@ -1,11 +1,72 @@
-<h1>Your friends are already here.</h1>
-<h2>Sign up now.</h2>
-
-
-<% if user_signed_in? %>
-  <h1>Well done, <%= current_user.email %></h1>
-  <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
-<% else %>
-  <h1>Home</h1>
-  <%= link_to 'Sign in', new_user_session_path %>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your friends</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+  }
+  h1, h2 {
+    color: #1877f2; /* Facebook blue */
+    margin-bottom: 20px;
+  }
+  .user-info {
+    margin-bottom: 20px;
+  }
+  .user-info h1 {
+    font-size: 24px;
+  }
+  .user-info a {
+    color: #1877f2; /* Facebook blue */
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+  }
+  .user-info a:hover {
+    text-decoration: underline;
+  }
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #04AA6D;
+    color: #ffffff;
+    border-color: #04AA6D
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Your friends are already here.</h1>
+    <h2>Sign up now.</h2>
+    
+    <% if user_signed_in? %>
+      <div class="user-info">
+        <h1>Hi, <%= current_user.email %></h1>
+        <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
+      </div>
+    <% else %>
+      <div class="user-info">
+        <h1></h1>
+        <%= link_to 'Sign in', new_user_session_path, class: "button" %>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>
