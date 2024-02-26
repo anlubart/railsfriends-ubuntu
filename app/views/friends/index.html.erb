@@ -1,14 +1,30 @@
 <p style="color: green"><%= notice %></p>
-
+<style>
+.button {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: 1px solid green;
+}
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+</style>
 <h1>Friends List</h1>
 
 <div id="friends">
   <% @friends.each do |friend| %>
     <%= render friend %>
+    <br>
     <p>
-      <%= link_to "Show this friend", friend %>
+      <%= link_to "Show this friend", friend, class: "button" %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New friend", new_friend_path %>
+<br>
+<%= link_to "New friend", new_friend_path, class: "button" %>

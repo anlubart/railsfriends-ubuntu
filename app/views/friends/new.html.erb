@@ -1,9 +1,33 @@
-<h1>Add New friend</h1>
+<h1>Add new friend</h1>
+<style>
+h1 {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.5;
+  }
+  .button {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: #ffffff;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  float: left;
+  border: 1px solid green;
+}
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+</style>
 
 <%= render "form", friend: @friend %>
 
 <br>
 
+
 <div>
-  <%= link_to "Back to friends", friends_path %>
+  <%= link_to "Back to friends", friends_path, class: "button" %>
 </div>
+

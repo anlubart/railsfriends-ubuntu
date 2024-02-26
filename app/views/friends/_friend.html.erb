@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Friend Card</title>
 <style>
 body {
   background-color: #f0f2f5;
+  color: #3b5998;
 }
   .card {
     background-color: #D3D3D3;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 300px;
+    width: 200px;
     text-align: center;
   }
   
   .name {
-    font-size: 30px;
     margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.5;
+    text-align: center;
   }
+
+
   img {
-  border-radius: 5px 5px 0 0;
+  border-radius: 3px 3px 0 0;
 }
 </style>
 </head>
 <body>
   <div class="card">
-  <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
+  <img src="https://scx1.b-cdn.net/csz/news/800a/2019/15-studysuggest.jpg" alt="Avatar" style="width:100%">
 
     <div class="name">
       <%= friend.first_name %>
       <%= friend.last_name %>
+      
     </div>
     <!-- Additional details can be added here -->
   </div>
