@@ -1,5 +1,6 @@
 class FriendsController < ApplicationController
-  before_action :set_friend, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+
 
   # GET /friends or /friends.json
   def index
@@ -8,6 +9,7 @@ class FriendsController < ApplicationController
 
   # GET /friends/1 or /friends/1.json
   def show
+    @friend = Friend.find(params[:id])
   end
 
   # GET /friends/new
@@ -17,6 +19,7 @@ class FriendsController < ApplicationController
 
   # GET /friends/1/edit
   def edit
+      @friend = Friend.find(params[:id]) 
   end
 
   # POST /friends or /friends.json
@@ -34,10 +37,12 @@ class FriendsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /friends/1 or /friends/1.json
   def update
+    @friend = Friend.find(params[:id])
+  
     respond_to do |format|
       if @friend.update(friend_params)
+        puts "Setting flash message for HTML format"
         format.html { redirect_to friend_url(@friend), notice: "Friend was successfully updated." }
         format.json { render :show, status: :ok, location: @friend }
       else
@@ -46,16 +51,19 @@ class FriendsController < ApplicationController
       end
     end
   end
+  
 
   # DELETE /friends/1 or /friends/1.json
   def destroy
+    @friend = Friend.find(params[:id])
     @friend.destroy!
-
+  
     respond_to do |format|
       format.html { redirect_to friends_url, notice: "Friend was successfully destroyed." }
       format.json { head :no_content }
     end
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
