@@ -4,26 +4,9 @@
 </div>
 
 <div class="actions">
-  <%= link_to "Edit this friend", edit_friend_path(@friend), class: "button" %>
-  <%= link_to "Back to friends", friends_path, class: "button" %>
-  <%= button_to "Destroy this friend", @friend, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+  <%= link_to "Edit", edit_friend_path(@friend), class: "button" %>
+  <%= link_to "Back to Friends", friends_path, class: "button" %>
+  <%= button_to "Delete", @friend, method: :delete, data: { confirm: 'Are you sure?' }, class: "button button-danger" %>
 </div>
 
-<style>
-
-.button {
-  background-color: #04AA6D; /* Green */
-  border: none;
-  color: white;
-  padding: 10px 24px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  float: left;
-  border: 1px solid green;
-}
-.button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-</style>
+<%= stylesheet_link_tag "showfriends" %>

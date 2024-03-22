@@ -17,17 +17,9 @@
     
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag "layout" %> 
   </head>
-  <style>
-  body {
-  background-color: #f0f2f5;
-  background-image: url("https://img.freepik.com/free-vector/watercolor-background-international-friendship-day-celebration_23-2150518691.jpg?t=st=1708904548~exp=1708908148~hmac=1c6773097c1520c2e718980d9e8c28ed1d0bf2c4d73a8fc8939e1573c6d20f48&w=826");
-  background-size: cover; /* Cover the entire background */
-  background-position: center; /* Center the background image */
-}
-
-  }
-</style>
+  
 
   <body>
  
@@ -35,9 +27,9 @@
   <div class="container">
   <br/>
   <%= yield %>
-  <p class="notice"><%= notice %></p>
   
-  <p class="alert"><%= alert %></p>
+  
+  
    
 
     <!-- Optional JavaScript; choose one of the two! -->

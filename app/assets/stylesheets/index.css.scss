@@ -1,0 +1,73 @@
+/* app/assets/stylesheets/index.css.scss */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    color: #3b5998; /* Facebook blue color */
+    margin-bottom: 30px;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  .user-info {
+    margin-bottom: 20px;
+  }
+  
+  .user-info h1 {
+    font-size: 30px;
+  }
+  
+  
+  .button {
+    background-color: #04AA6D; /* Netflix Red */
+    border: none;
+    color: #ffffff;
+    padding: 16px 24px; /* Increase padding for larger button */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block; /* Change display to inline-block for Netflix style */
+    font-size: 18px; /* Increase font size for larger text */
+    font-weight: bold; /* Make text bold */
+    border-radius: 4px; /* Add border radius for rounded corners */
+}
+
+  
+  .button:hover {
+    background-color: 1px solid green; /* Darker shade of Netflix Red on hover */
+  }
+  
+  .sign-in-button {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: bold;
+    display: inline-block;
+    font-size: 15px;
+    border: 1px solid green;
+    border-radius: 4px;
+  }
+  
+  .sign-in-button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  
+  

@@ -4,84 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Your friends</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
-    margin: 0;
-    padding: 0;
-  }
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 50px;
-    text-align: center;
-  }
-  h1
-  {
-    font-size: 2.5em;
-    color: #3b5998; /* Facebook blue color */
-    margin-bottom: 20px;
-  }
-  h2
-  {
-    font-size: 1.5em;
-    color: #333;
-    line-height: 1.5;
-  }
-  .user-info {
-    margin-bottom: 20px;
-  }
-  .user-info h1 {
-    font-size: 24px;
-  }
-  .user-info a {
-    color: #fffff; /* Facebook blue */
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 10px;
-    display: inline-block;
-  }
-  
-  .button {
-  background-color: #04AA6D; /* Green */
-  border: none;
-  color: #ffffff;
-  padding: 10px 24px;
-  text-align: center;
-  text-decoration: none;
-  display: block; /* Change display to block */
-  margin: 0 auto; /* Add margin to center horizontally */
-  font-size: 16px;
-  border: 1px solid green;
-}
-.button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-</style>
-
+<%= stylesheet_link_tag "index", "data-turbo-track": "reload" %> <!-- Add this line to link the CSS file -->
 </head>
 <body>
+
   <div class="container">
     <% if user_signed_in? %>
       <div class="user-info">
-        <div class="card" style="background-color: #f0f2f5; border-color: #3b5998;">
-          <div class="card-body">
-            <h1>Hi, <%= current_user.email %></h1>
-            <%= link_to 'Sign out', destroy_user_session_path, class: "button", data: { turbo_method: :delete } %>
 
-          </div>
-        </div>
-      </div>
+            <h1>Hi <%= current_user.name %></h1>
+            <%= link_to 'Sign out', destroy_user_session_path, class: "button", data: { turbo_method: :delete } %>
+          
     <% else %>
       <h1>Your friends are already here.</h1>
       
       <div class="user-info">
         <h2></h2>
-        
-      <%= link_to 'Sign up', new_user_registration_path, class: "button" %>
+        <%= link_to 'Sign up', new_user_registration_path, class: "button" %>
+      </div>
     <% end %>
   </div>
 </body>
-
 </html>

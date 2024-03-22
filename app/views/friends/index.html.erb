@@ -1,30 +1,37 @@
-<p style="color: green"><%= notice %></p>
-<style>
-.button {
-  background-color: #04AA6D; /* Green */
-  border: none;
-  color: white;
-  padding: 10px 24px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border: 1px solid green;
-}
-.button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-</style>
-<h1>Friends List</h1>
-
-<div id="friends">
-  <% @friends.each do |friend| %>
-    <%= render friend %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Friends List</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  <%= stylesheet_link_tag "friendslist" %> 
+</head>
+<body>
+  
+  <div class="container">
+    <h1>Friends List</h1>
+    <div id="friends">
+      <% @friends.each do |friend| %>
+        <div class="friend">
+          <p>Name: <%= friend.first_name %> <%= friend.last_name %></p>
+          <p>Email: <%= friend.email %></p>
+          <p>Phone: <%= friend.phone %></p>
+          <p>Twitter: <%= friend.twitter %></p>
+          <p><%= link_to "Show this friend", friend, class: "button" %></p>
+        </div>
+      <% end %>
+    </div>
     <br>
-    <p>
-      <%= link_to "Show this friend", friend, class: "button" %>
-    </p>
-  <% end %>
-</div>
-<br>
-<%= link_to "New friend", new_friend_path, class: "button" %>
+    <%= link_to "New friend", new_friend_path, class: "button" %>
+    <% if current_user %>
+      <p class="notice"></p>
+    <% else %>
+      <p class="alert">You're not signed in, would you like to <%= link_to 'sign in', new_user_session_path %>?</p>
+    <% end %>
+  </div>
+</body>
+</html>

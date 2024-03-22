@@ -1,10 +1,9 @@
 class FriendsController < ApplicationController
   before_action :authenticate_user!
 
-
   # GET /friends or /friends.json
   def index
-    @friends = Friend.all
+   @friends = Friend.where(user_id: current_user.id)
   end
 
   # GET /friends/1 or /friends/1.json
@@ -73,6 +72,6 @@ class FriendsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def friend_params
-      params.require(:friend).permit(:first_name, :last_name, :email, :phone, :twitter)
+      params.require(:friend).permit(:first_name, :last_name, :email, :phone, :twitter, :user_id)
     end
 end

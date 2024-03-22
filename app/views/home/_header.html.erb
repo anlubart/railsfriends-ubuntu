@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
   <%= link_to 'Friend App', root_path, class: "navbar-brand" %>
-   
+   <%= stylesheet_link_tag "index" %> 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -19,11 +19,15 @@
         <%= link_to 'Add friend', new_friend_path, class: "nav-link" %>
           </li>
 
-          <li class="nav-item">
-          <%= link_to 'Sign in', new_user_session_path, class: "nav-link"  %>
+          <li class="nav-item"> <% if !current_user %>
+          <%= link_to 'Sign in', new_user_session_path, class: "nav-link sign-in-button"  %>
+          <%end%>
           </li>
+         
           
-          
+          <li class="nav-item"> <% if current_user %>
+          <%= link_to 'Sign out', destroy_user_session_path, class: "nav-link"  %> <%end%>
+          </li>
       </ul>
       
     </div>
